@@ -1,0 +1,65 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-2022'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  displayName: Install .NET 6.0 SDK
+  inputs:
+    packageType: 'sdk'
+    version: '6.0.x'
+    includePreviewVersions: false
+
+- task: NuGetToolInstaller@1
+  displayName: Install NuGet 6.1.0
+  inputs:
+    versionSpec: '6.1.0'
+
+- task: NuGetCommand@2
+  displayName: Restore packages
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  displayName: Build solution
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Run unit tests
+  inputs:
+    command: test
+    projects: |
+      **/*Tests.csproj
+      !**/*WinUI.Tests.csproj
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: CopyFiles@2
+  displayName: Copy generated NuGet Packages
+  inputs:
+    contents: '$(Build.SourcesDirectory)\Source\Ukisoft.WhatsNew*\bin\$(buildConfiguration)\*.nupkg'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+    flattenFolders: true
+
+# This is not working until Visual Studio 17.2 and .NET SDK 6.0.300 (https://github.com/dotnet/msbuild/issues/7329)
+#- task: DotNetCoreCLI@2
+#  displayName: Produce NuGet packages
+#  inputs:
+#    command: 'pack'
+#    packagesToPack: '**/*.csproj;!**/*.Tests.csproj'
+#    versioningScheme: 'off'
+#    packDirectory: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish artifacts
+  inputs:
+    ArtifactName: 'Packages'
