@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>Ukisoft.WhatsNew.WinUI</RootNamespace>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <UseWinUI>true</UseWinUI>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>UKISOFT</Authors>
+    <Description>Generates 'What's new' page content using the application changelog.</Description>
+    <Copyright>Copyright (c) UKISOFT 2022</Copyright>
+    <PackageProjectUrl>https://uki-soft.com/NuGet/Ukisoft.WhatsNew.WinUI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lukaszzielnica/Ukisoft.WhatsNew</RepositoryUrl>
+    <RepositoryType></RepositoryType>
+    <PackageTags>changelog; whats new page; winui;</PackageTags>
+    <Version>1.0.0-alpha1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
+      <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.196" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ukisoft.WhatsNew\Ukisoft.WhatsNew.csproj" />
+  </ItemGroup>
+</Project>

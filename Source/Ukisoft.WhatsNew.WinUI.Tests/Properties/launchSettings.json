@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Ukisoft.WhatsNew.WinUI.Tests (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Ukisoft.WhatsNew.WinUI.Tests (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Authors>UKISOFT</Authors>
+    <Product></Product>
+    <Description>Application changelog management library to generate 'What's new' page content in the client application.</Description>
+    <PackageProjectUrl>https://uki-soft.com/NuGet/Ukisoft.WhatsNew</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lukaszzielnica/Ukisoft.WhatsNew</RepositoryUrl>
+    <PackageTags>changelog; whats new; xml file;</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Copyright>Copyright (c) UKISOFT 2022</Copyright>
+    <Version>1.0.0-alpha1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Internal\WhatsNew.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Internal\WhatsNew.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+﻿v0.4.22237.1
+
+Features
+This is some description in english.
+This is some other description in english.
+
+Bugfixes
+This is bug fix.
+
+
+v0.3.22112.1
+
+Features
+Only features in this release.
+
+
+v0.2.22031.2
+
+Bugfixes
+Only bugfixes in this version.
+Some bugfix.

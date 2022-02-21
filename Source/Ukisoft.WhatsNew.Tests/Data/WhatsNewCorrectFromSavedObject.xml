@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<WhatsNew xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://uki-soft.com/WhatsNew.xsd">
+  <InVersion number="0.4.22237.1">
+    <Features>
+      <Feature>
+        <Description language="en-US" value="This is some description in english." />
+      </Feature>
+			<Feature>
+				<Description language="en-US" value="This is some other description in english." />
+			</Feature>
+    </Features>
+		<Bugfixes>
+			<Bugfix>
+				<Description language="en-US" value="This is bug fix." />
+			</Bugfix>
+		</Bugfixes>
+  </InVersion>
+  <InVersion number="0.3.22112.1">
+		<Features>
+			<Feature>
+				<Description language="en-US" value="Only features in this release." />
+			</Feature>
+		</Features>
+    <Bugfixes />
+  </InVersion>
+  <InVersion number="0.2.22031.2">
+    <Features />
+		<Bugfixes>
+			<Bugfix>
+				<Description language="en-US" value="Only bugfixes in this version." />
+			</Bugfix>
+			<Bugfix>
+				<Description language="en-US" value="Some bugfix." />
+			</Bugfix>
+		</Bugfixes>
+  </InVersion>
+  <InVersion number="0.1.22001.1">
+    <Features />
+    <Bugfixes />
+  </InVersion>
+</WhatsNew>
