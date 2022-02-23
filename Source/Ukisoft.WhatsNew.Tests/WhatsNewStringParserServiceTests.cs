@@ -81,6 +81,72 @@ public class WhatsNewStringParserServiceTests
         },
     };
 
+    [Theory]
+    [MemberData(nameof(PolishTestSettings))]
+    public void ParseWhatsNewUsingModifiedPolishSettings(TestTextDisplayerSettings settings)
+    {
+        var changelog = Changelog.LoadFromXmlFile(@"Data\WhatsNewCorrectFromSavedObjectWithPolishResources.xml");
+
+        string whatsNewText = string.Empty;
+        _service.TextDisplayerSettings = settings;
+        _service.ParseWhatsNew(changelog, ref whatsNewText);
+
+        var expectedResult = GetExpectedServiceResult(settings.ExpectedResultFile);
+        Assert.Equal(expectedResult, whatsNewText);
+    }
+
+    public static IEnumerable<object[]> PolishTestSettings => new List<object[]>()
+    {
+        new object[]
+        {
+            new TestTextDisplayerSettings()
+            {
+                Language = "pl-PL",
+                ChangesNumbering = false,
+                MessageIfNoFeatures = string.Empty,
+                MessageIfNoBugfixes = string.Empty,
+                MessageIfNoChangesInVersion = string.Empty,
+                ExpectedResultFile = "WhatsNewCorrectFromSavedObjectSettingsWithPolishResources1.txt",
+            }
+        },
+        new object[]
+        {
+            new TestTextDisplayerSettings()
+            {
+                Language = "pl-PL",
+                ChangesNumbering = true,
+                MessageIfNoFeatures = "Nie ma nowych funkcji w tej wersji. Bądźcie czujni!",
+                MessageIfNoBugfixes = string.Empty,
+                MessageIfNoChangesInVersion = string.Empty,
+                ExpectedResultFile = "WhatsNewCorrectFromSavedObjectSettingsWithPolishResources2.txt",
+            }
+        },
+        new object[]
+        {
+            new TestTextDisplayerSettings()
+            {
+                Language = "pl-PL",
+                ChangesNumbering = true,
+                MessageIfNoFeatures = string.Empty,
+                MessageIfNoBugfixes = "Aplikacja jest bezbłędna! Na serio :)",
+                MessageIfNoChangesInVersion = string.Empty,
+                ExpectedResultFile = "WhatsNewCorrectFromSavedObjectSettingsWithPolishResources3.txt",
+            }
+        },
+        new object[]
+        {
+            new TestTextDisplayerSettings()
+            {
+                Language = "pl-PL",
+                ChangesNumbering = true,
+                MessageIfNoFeatures = "Bla bla bla",
+                MessageIfNoBugfixes = "Powinien być ten jeden",
+                MessageIfNoChangesInVersion = "Brak zmian po całości",
+                ExpectedResultFile = "WhatsNewCorrectFromSavedObjectSettingsWithPolishResources4.txt",
+            }
+        },
+    };
+
     public class TestTextDisplayerSettings : TextDisplayerSettings
     {
         public string ExpectedResultFile { get; set; } = string.Empty;

@@ -42,14 +42,14 @@ public sealed class WhatsNewStringParserService : WhatsNewBaseParserService<stri
             stringBuilder.AppendLine($"v{changelog.Version}{Environment.NewLine}");
 
             if (hasFeatures)
-                stringBuilder.AppendLine(ParseChanges(changelog.Features, "Features"));
+                stringBuilder.AppendLine(ParseChanges(changelog.Features, FeaturesText));
             else if (!string.IsNullOrEmpty(TextDisplayerSettings.MessageIfNoFeatures))
-                stringBuilder.AppendLine($"Features{Environment.NewLine}{TextDisplayerSettings.MessageIfNoFeatures}{Environment.NewLine}");
+                stringBuilder.AppendLine($"{FeaturesText}{Environment.NewLine}{TextDisplayerSettings.MessageIfNoFeatures}{Environment.NewLine}");
 
             if (hasBugfixes)
-                stringBuilder.AppendLine(ParseChanges(changelog.Bugfixes, "Bugfixes"));
+                stringBuilder.AppendLine(ParseChanges(changelog.Bugfixes, BugfixesText));
             else if (!string.IsNullOrEmpty(TextDisplayerSettings.MessageIfNoBugfixes))
-                stringBuilder.AppendLine($"Bugfixes{Environment.NewLine}{TextDisplayerSettings.MessageIfNoBugfixes}{Environment.NewLine}");
+                stringBuilder.AppendLine($"{BugfixesText}{Environment.NewLine}{TextDisplayerSettings.MessageIfNoBugfixes}{Environment.NewLine}");
 
             stringBuilder.AppendLine();
         }
@@ -74,7 +74,7 @@ public sealed class WhatsNewStringParserService : WhatsNewBaseParserService<stri
             if (TextDisplayerSettings.ChangesNumbering)
                 stringBuilder.Append($"{counter}. ");
             
-            stringBuilder.AppendLine($"{changeDescription["en-US"]}");
+            stringBuilder.AppendLine($"{changeDescription[TextDisplayerSettings.Language]}");
             counter++;
         }
 

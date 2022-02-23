@@ -11,6 +11,8 @@ public class SchemaValidationTests
     [Theory]
     [InlineData("WhatsNewCorrectFromSavedObject.xml")]
     [InlineData("WhatsNewCorrectVisualStudioRandom.xml")]
+    [InlineData("WhatsNewCorrectFromSavedObjectWithPolishResources.xml")]
+    [InlineData("WhatsNewCorrectVisualStudioRandomWithPolishResources.xml")]
     public void ValidateCorrectXmlFile(string filePath)
     {
         XmlUtils.ValidateAgainstSchema($@"Data\{filePath}");
@@ -19,6 +21,8 @@ public class SchemaValidationTests
     [Theory]
     [InlineData("WhatsNewCorrectFromSavedObject.xml")]
     [InlineData("WhatsNewCorrectVisualStudioRandom.xml")]
+    [InlineData("WhatsNewCorrectFromSavedObjectWithPolishResources.xml")]
+    [InlineData("WhatsNewCorrectVisualStudioRandomWithPolishResources.xml")]
     public async Task ValidateCorrectXmlFileAsync(string filePath)
     {
         await XmlUtils.ValidateAgainstSchemaAsync($@"Data\{filePath}");

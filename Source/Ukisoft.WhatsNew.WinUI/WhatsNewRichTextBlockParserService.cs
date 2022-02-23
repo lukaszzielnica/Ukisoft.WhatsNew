@@ -42,14 +42,14 @@ public sealed class WhatsNewRichTextBlockParserService : WhatsNewBaseParserServi
             AddVersionInfo(paragraph, changelog.Version);
 
             if (hasFeatures)
-                AddChanges(paragraph, changelog.Features, "Features");
+                AddChanges(paragraph, changelog.Features, FeaturesText);
             else if (!string.IsNullOrEmpty(TextDisplayerSettings.MessageIfNoFeatures))
-                AddChanges(paragraph, TextDisplayerSettings.MessageIfNoFeatures, "Features");
+                AddChanges(paragraph, TextDisplayerSettings.MessageIfNoFeatures, FeaturesText);
 
             if (hasBugfixes)
-                AddChanges(paragraph, changelog.Bugfixes, "Bugfixes");
+                AddChanges(paragraph, changelog.Bugfixes, BugfixesText);
             else if (!string.IsNullOrEmpty(TextDisplayerSettings.MessageIfNoBugfixes))
-                AddChanges(paragraph, TextDisplayerSettings.MessageIfNoBugfixes, "Features");
+                AddChanges(paragraph, TextDisplayerSettings.MessageIfNoBugfixes, BugfixesText);
 
             paragraph.Inlines.Add(new LineBreak());
         }
@@ -145,7 +145,7 @@ public sealed class WhatsNewRichTextBlockParserService : WhatsNewBaseParserServi
         if (TextDisplayerSettings.ChangesNumbering)
             changeDescription = $"{counter}. ";
 
-        changeDescription += $"{description["en-US"]}";
+        changeDescription += $"{description[TextDisplayerSettings.Language]}";
         return changeDescription;
     }
 }

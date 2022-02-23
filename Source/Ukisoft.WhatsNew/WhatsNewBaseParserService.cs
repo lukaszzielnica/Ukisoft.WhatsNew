@@ -23,4 +23,22 @@ public abstract class WhatsNewBaseParserService<TextDisplayer> : IWhatsNewTextPa
 
     /// <inheritdoc/>
     public abstract void ParseWhatsNew(AppChangesInVersion changelog, ref TextDisplayer textDisplayer);
+
+    /// <summary>
+    /// Gets language-dependent "Features" text.
+    /// </summary>
+    protected string FeaturesText => TextDisplayerSettings.Language switch
+    {
+        "pl" or "pl-PL" => "Funkcje",
+        _ => "Features",
+    };
+
+    /// <summary>
+    /// Gets language-dependent "Bugfixes" text.
+    /// </summary>
+    protected string BugfixesText => TextDisplayerSettings.Language switch
+    {
+        "pl" or "pl-PL" => "Naprawione błędy",
+        _ => "Bugfixes",
+    };
 }

@@ -13,6 +13,8 @@ public class DeserializationTests
     [Theory]
     [InlineData("WhatsNewCorrectFromSavedObject.xml")]
     [InlineData("WhatsNewCorrectVisualStudioRandom.xml")]
+    [InlineData("WhatsNewCorrectFromSavedObjectWithPolishResources.xml")]
+    [InlineData("WhatsNewCorrectVisualStudioRandomWithPolishResources.xml")]
     public void DeserializeFromCorrectXmlFile(string filePath)
     { 
         var whatsNew = XmlUtils.DeserializeFromFile<WhatsNewRoot>($@"Data\{filePath}");
@@ -24,6 +26,8 @@ public class DeserializationTests
     [Theory]
     [InlineData("WhatsNewCorrectFromSavedObject.xml")]
     [InlineData("WhatsNewCorrectVisualStudioRandom.xml")]
+    [InlineData("WhatsNewCorrectFromSavedObjectWithPolishResources.xml")]
+    [InlineData("WhatsNewCorrectVisualStudioRandomWithPolishResources.xml")]
     public void DeserializeFromText(string filePath)
     {
         var text = File.ReadAllText($@"Data\{filePath}");
@@ -36,6 +40,8 @@ public class DeserializationTests
     [Theory]
     [InlineData("WhatsNewCorrectFromSavedObject.xml")]
     [InlineData("WhatsNewCorrectVisualStudioRandom.xml")]
+    [InlineData("WhatsNewCorrectFromSavedObjectWithPolishResources.xml")]
+    [InlineData("WhatsNewCorrectVisualStudioRandomWithPolishResources.xml")]
     public async Task DeserializeFromCorrectXmlFileAsync(string filePath)
     {
         var whatsNew = await XmlUtils.DeserializeFromFileAsync<WhatsNewRoot>($@"Data\{filePath}");

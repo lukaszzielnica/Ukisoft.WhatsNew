@@ -14,6 +14,8 @@ public class ChangelogTests : IDisposable
     [Theory]
     [InlineData("WhatsNewCorrectFromSavedObject.xml")]
     [InlineData("WhatsNewCorrectVisualStudioRandom.xml")]
+    [InlineData("WhatsNewCorrectFromSavedObjectWithPolishResources.xml")]
+    [InlineData("WhatsNewCorrectVisualStudioRandomWithPolishResources.xml")]
     public void LoadCorrectChangelogsFromXmlFile(string filePath)
     {
         var changelog = Changelog.LoadFromXmlFile($@"Data\{filePath}");
@@ -23,6 +25,8 @@ public class ChangelogTests : IDisposable
     [Theory]
     [InlineData("WhatsNewCorrectFromSavedObject.xml")]
     [InlineData("WhatsNewCorrectVisualStudioRandom.xml")]
+    [InlineData("WhatsNewCorrectFromSavedObjectWithPolishResources.xml")]
+    [InlineData("WhatsNewCorrectVisualStudioRandomWithPolishResources.xml")]
     public async Task LoadCorrectChangelogsFromXmlFileAsync(string filePath)
     {
         var changelog = await Changelog.LoadFromXmlFileAsync($@"Data\{filePath}");

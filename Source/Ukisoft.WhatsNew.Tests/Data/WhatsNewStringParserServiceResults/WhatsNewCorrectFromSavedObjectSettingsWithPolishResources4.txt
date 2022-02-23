@@ -1,0 +1,32 @@
+﻿v0.4.22237.1
+
+Funkcje
+1. To jest jakiś opis po polsku.
+2. To jest jakiś inny opis po polsku.
+
+Naprawione błędy
+1. To jest naprawiony błąd.
+
+
+v0.3.22112.1
+
+Funkcje
+1. Tylko funkcje w tym wydaniu.
+
+Naprawione błędy
+Powinien być ten jeden
+
+
+v0.2.22031.2
+
+Funkcje
+Bla bla bla
+
+Naprawione błędy
+1. Tylko naprawy błędów w tej wersji.
+2. Jakaś naprawa błędu.
+
+
+v0.1.22001.1
+
+Brak zmian po całości
